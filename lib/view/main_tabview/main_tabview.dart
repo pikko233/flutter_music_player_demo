@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player_demo/common/color_extension.dart';
+import 'package:flutter_music_player_demo/view/home/home_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -37,11 +38,7 @@ class _MainTabViewState extends State<MainTabView>
     return Scaffold(
       body: TabBarView(
         controller: controller,
-        children: [
-          Container(child: Center(child: Text("Home"))),
-          Container(child: Center(child: Text("Songs"))),
-          Container(child: Center(child: Text("Setting"))),
-        ],
+        children: [const HomeView(), const HomeView(), const HomeView()],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
