@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_music_player_demo/common/color_extension.dart';
 import 'package:flutter_music_player_demo/viewmodel/home_view_model.dart';
 import 'package:flutter_music_player_demo/viewmodel/splash_view_model.dart';
+import 'package:flutter_music_player_demo/widgets/custom_drawer.dart';
 import 'package:flutter_music_player_demo/widgets/playlist_cell.dart';
 import 'package:flutter_music_player_demo/widgets/recommended_cell.dart';
 import 'package:flutter_music_player_demo/widgets/songs_row.dart';
@@ -18,235 +19,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final homeVM = Get.put(HomeViewModel());
-  final splashVM = Get.find<SplashViewModel>();
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      key: splashVM.scaffoldKey,
-      drawer: Drawer(
-        backgroundColor: const Color(0xff10121d),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            SizedBox(
-              height: 240,
-              child: DrawerHeader(
-                decoration: BoxDecoration(
-                  color: TColor.primaryText.withValues(alpha: 0.03),
-                ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/img/app_logo.png",
-                      width: media.width * 0.18,
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              "328\nSongs",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xffc1c0c0),
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              "52\nAlbums",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xffc1c0c0),
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              "87\nArtists",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xffc1c0c0),
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_theme.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Themes",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-            Divider(
-              color: TColor.primaryText.withValues(alpha: 0.07),
-              indent: 70,
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_ring_cut.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Ringtone Cutter",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-            Divider(
-              color: TColor.primaryText.withValues(alpha: 0.07),
-              indent: 70,
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_sleep_timer.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Sleep Timer",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-            Divider(
-              color: TColor.primaryText.withValues(alpha: 0.07),
-              indent: 70,
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_eq.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Equliser",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-            Divider(
-              color: TColor.primaryText.withValues(alpha: 0.07),
-              indent: 70,
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_driver_mode.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Driver Mode",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-            Divider(
-              color: TColor.primaryText.withValues(alpha: 0.07),
-              indent: 70,
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_hidden_folder.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Hidden Folder",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-            Divider(
-              color: TColor.primaryText.withValues(alpha: 0.07),
-              indent: 70,
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_scan_media.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Scan Media",
-                style: TextStyle(
-                  color: TColor.primaryText.withValues(alpha: 0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: () {
-                splashVM.closeDrawer();
-              },
-            ),
-          ],
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: TColor.bg,
         leading: IconButton(
@@ -257,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
             "assets/img/menu.png",
             width: 25,
             height: 25,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
         title: Row(

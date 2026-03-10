@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player_demo/common/color_extension.dart';
 import 'package:flutter_music_player_demo/view/home/home_view.dart';
+import 'package:flutter_music_player_demo/view/setting/setting_view.dart';
+import 'package:flutter_music_player_demo/view/songs/songs_view.dart';
+import 'package:flutter_music_player_demo/viewmodel/splash_view_model.dart';
+import 'package:flutter_music_player_demo/widgets/custom_drawer.dart';
+import 'package:get/get.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -13,6 +18,7 @@ class _MainTabViewState extends State<MainTabView>
     with SingleTickerProviderStateMixin {
   TabController? controller;
   int selectTab = 0;
+  final splashVM = Get.put(SplashViewModel());
 
   @override
   void initState() {
@@ -36,9 +42,11 @@ class _MainTabViewState extends State<MainTabView>
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
+      key: splashVM.scaffoldKey,
+      drawer: CustomDrawer(),
       body: TabBarView(
         controller: controller,
-        children: [const HomeView(), const HomeView(), const HomeView()],
+        children: [HomeView(), SongsView(), SettingView()],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

@@ -7,7 +7,7 @@ class SplashViewModel extends GetxController {
   var scaffoldKey = GlobalKey<ScaffoldState>();
 
   void loadView() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 500));
     Get.to(() => const MainTabView());
   }
 
