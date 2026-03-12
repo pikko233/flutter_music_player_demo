@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player_demo/common/color_extension.dart';
+import 'package:flutter_music_player_demo/view/songs/albums_view.dart';
 import 'package:flutter_music_player_demo/view/songs/all_songs_view.dart';
 import 'package:flutter_music_player_demo/view/songs/playlist_view.dart';
 import 'package:flutter_music_player_demo/viewmodel/splash_view_model.dart';
@@ -92,7 +93,7 @@ class _SongsViewState extends State<SongsView>
               children: [
                 const AllSongsView(),
                 const PlaylistView(),
-                Center(child: Text("Albums")),
+                const AlbumsView(),
                 Center(child: Text("Artists")),
                 Center(child: Text("Channels")),
               ],
