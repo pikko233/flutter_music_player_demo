@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_music_player_demo/view/songs/album_details_view.dart';
 import 'package:flutter_music_player_demo/viewmodel/albums_view_model.dart';
 import 'package:flutter_music_player_demo/widgets/album_cell.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,9 @@ class _AlbumsViewState extends State<AlbumsView> {
             var aObj = albumVM.allList[index];
             return AlbumCell(
               aObj: aObj,
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => const AlbumDetailsView());
+              },
               onPressedMenu: (selectIndex) {
                 print(selectIndex);
               },
