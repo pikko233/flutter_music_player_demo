@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player_demo/common/color_extension.dart';
+import 'package:flutter_music_player_demo/view/main_player/driver_mode_view.dart';
+import 'package:flutter_music_player_demo/view/main_player/play_playlist_view.dart';
 import 'package:flutter_music_player_demo/widgets/player_bottom_button.dart';
 import 'package:get/get.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
@@ -46,7 +48,12 @@ class _MainPlayerViewState extends State<MainPlayerView> {
             shadowColor: Colors.black,
             icon: Icon(Icons.more_vert),
             padding: EdgeInsets.zero,
-            onSelected: (index) {},
+            onSelected: (index) {
+              if (index == 9) {
+                // Driver Mode
+                Get.to(() => const DriverModeView());
+              }
+            },
             itemBuilder: (context) => [
               const PopupMenuItem(
                 value: 1,
@@ -84,7 +91,7 @@ class _MainPlayerViewState extends State<MainPlayerView> {
                 child: Text("Equaliser", style: TextStyle(fontSize: 12)),
               ),
               const PopupMenuItem(
-                value: 8,
+                value: 9,
                 child: Text("Driver mode", style: TextStyle(fontSize: 12)),
               ),
             ],
@@ -217,7 +224,9 @@ class _MainPlayerViewState extends State<MainPlayerView> {
                 PlayerBottomButton(
                   title: "Playlist",
                   icon: "assets/img/playlist.png",
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const PlayPlaylistView());
+                  },
                 ),
                 PlayerBottomButton(
                   title: "Shuffle",
