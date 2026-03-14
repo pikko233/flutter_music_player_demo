@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_music_player_demo/common/color_extension.dart';
 import 'package:flutter_music_player_demo/view/songs/albums_view.dart';
 import 'package:flutter_music_player_demo/view/songs/all_songs_view.dart';
+import 'package:flutter_music_player_demo/view/songs/artists_view.dart';
+import 'package:flutter_music_player_demo/view/songs/genres_view.dart';
 import 'package:flutter_music_player_demo/view/songs/playlist_view.dart';
 import 'package:flutter_music_player_demo/viewmodel/splash_view_model.dart';
 import 'package:flutter_music_player_demo/widgets/custom_drawer.dart';
@@ -70,7 +72,7 @@ class _SongsViewState extends State<SongsView>
               indicatorPadding: const EdgeInsets.symmetric(horizontal: 20),
               isScrollable: true,
               labelStyle: TextStyle(
-                color: TColor.primary,
+                color: TColor.focus,
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
               ),
@@ -83,19 +85,19 @@ class _SongsViewState extends State<SongsView>
                 Tab(text: "Playlist"),
                 Tab(text: "Albums"),
                 Tab(text: "Artists"),
-                Tab(text: "Channels"),
+                Tab(text: "Genres"),
               ],
             ),
           ),
           Expanded(
             child: TabBarView(
               controller: controller,
-              children: [
-                const AllSongsView(),
-                const PlaylistView(),
-                const AlbumsView(),
-                Center(child: Text("Artists")),
-                Center(child: Text("Channels")),
+              children: const [
+                AllSongsView(),
+                PlaylistView(),
+                AlbumsView(),
+                ArtistsView(),
+                GenresView(),
               ],
             ),
           ),

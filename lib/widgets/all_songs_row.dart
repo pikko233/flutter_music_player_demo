@@ -76,7 +76,7 @@ class AllSongsRow extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: onPressed,
+              onPressed: onPressedPlay,
               icon: Image.asset(
                 "assets/img/play_btn.png",
                 width: 25,
